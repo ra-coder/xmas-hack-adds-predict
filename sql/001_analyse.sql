@@ -1,0 +1,29 @@
+select distinct programme from xmas_hack_adds_predict.public.train;
+
+-- programme
+-- Muzhskoe/zhenskoe
+-- Zdorovye
+-- Pole Chudes
+-- Davay pozhenimsya!
+-- Kto khochet stat millionerom?
+-- Podkast.Lab
+-- Vremya pokazhet
+-- "Igray, Garmon!"
+-- Zhit zdorovo
+-- Videli video?
+-- Poekhali!
+-- Chelovek i Zakon
+-- Bolshaya igra
+-- Povara na kolesakh
+-- "Telekanal ""Dobroe utro"""
+-- Vechernie novosti
+-- Golos. Uzhe ne deti
+-- What? Where? When?
+-- Tri akkorda
+-- AntiFeyk
+-- Kukly naslednika Tutti
+-- Dve zvezdy. Ottsy i deti
+-- Vremya
+-- Segodnya vecherom
+-- Golos
+-- Pro uyut
