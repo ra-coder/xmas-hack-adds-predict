@@ -1,0 +1,92 @@
+C:\MyPrograms\Python3.10.0\python.exe C:/MyData/PyCharm/xmas-hack-adds-predict/python/main.py
+99:	learn: 15.2245663	test: 18.7541340	best: 10.8227972 (68)	total: 4.48s	remaining: 0us
+
+bestTest = 10.82279725
+bestIteration = 68
+
+Shrink model to first 69 iterations.
+validate on last weeks
+MAPE score: 0.9197242983022171
+MAPE on learn score: 0.9111372893522895
+                  Feature Id  Importances
+0       week_day_time_weight    66.200852
+1      break_distribution_id    25.040433
+2                time_weight     3.190546
+3               p_effir_rate     1.626934
+4                 week_day_3     0.854156
+5                 time_group     0.529508
+6              extra_holiday     0.337975
+7           p_avg_int_target     0.312981
+8                 week_day_2     0.305889
+9      real_program_start_ts     0.276989
+10      genre_avg_int_target     0.275972
+11      real_flight_start_ts     0.207687
+12     programme_category_id     0.182218
+13             night_program     0.160190
+14        programme_genre_id     0.135894
+15      p_blocks_per_program     0.097141
+16               duration_ts     0.067159
+17       program_duration_ts     0.063514
+18              programme_id     0.053922
+19          break_content_id     0.030100
+20                  week_day     0.018559
+21             pc_effir_rate     0.012660
+22  genre_blocks_per_program     0.007291
+23             real_week_day     0.004346
+24           real_week_day_2     0.002745
+25     pc_blocks_per_program     0.002572
+26                   holiday     0.001391
+27          genre_effir_rate     0.000307
+28         pc_avg_int_target     0.000071
+29                 programme     0.000000
+30        programme_category     0.000000
+31           programme_genre     0.000000
+32        break_distribution     0.000000
+33             break_content     0.000000
+
+
+99:	learn: 15.2258321	test: 14.9399413	best: 11.2691039 (68)	total: 5.02s	remaining: 0us
+
+bestTest = 11.26910394
+bestIteration = 68
+
+Shrink model to first 69 iterations.
+MAPE score: 0.9108589799283794
+MAPE on learn score: 0.9099213675581957
+                  Feature Id  Importances
+0       week_day_time_weight    49.033907
+1      break_distribution_id    26.457242
+2      programme_category_id    12.184821
+3                time_weight     6.421173
+4      real_program_start_ts     1.447925
+5          pc_avg_int_target     1.416992
+6                   week_day     0.687892
+7              real_week_day     0.526995
+8              night_program     0.513536
+9           p_avg_int_target     0.318892
+10               duration_ts     0.290644
+11              programme_id     0.245350
+12          genre_effir_rate     0.093597
+13      genre_avg_int_target     0.070891
+14      p_blocks_per_program     0.065757
+15           real_week_day_2     0.063071
+16              p_effir_rate     0.062537
+17                time_group     0.022585
+18      real_flight_start_ts     0.019608
+19        programme_genre_id     0.015281
+20       program_duration_ts     0.009083
+21             pc_effir_rate     0.008758
+22  genre_blocks_per_program     0.007628
+23     pc_blocks_per_program     0.005976
+24                week_day_3     0.005032
+25          break_content_id     0.003577
+26             extra_holiday     0.000758
+27                week_day_2     0.000299
+28                   holiday     0.000190
+29                 programme     0.000000
+30        programme_category     0.000000
+31           programme_genre     0.000000
+32        break_distribution     0.000000
+33             break_content     0.000000
+
+Process finished with exit code 0

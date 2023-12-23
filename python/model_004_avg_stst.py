@@ -11,7 +11,7 @@ from lib import AbstractTrainFlow, PreparedResult, mape
 
 
 class CatboostTrainFlow(AbstractTrainFlow):
-    model_name = 'model_003'
+    model_name = 'model_004'
 
     def prepare_features(
         self,
@@ -33,8 +33,13 @@ class CatboostTrainFlow(AbstractTrainFlow):
                 programme_genres.blocks_per_program as genre_blocks_per_program,
                 calendar.*,
                 time_weight.time_group,
-                time_weight.weight as time_wight,
-                time_weight_for_week_day.weight as week_day_time_wight
+                time_weight.weight as time_weight,
+                time_weight_for_week_day.weight as week_day_time_weight,
+                time_weight_for_week_day_by5_min.weight as week_day_time_weight_by5_min,
+                time_weight_for_week_day_by150_sec.weight as week_day_time_weight_by150_sec,
+                time_weight_for_week_day_by30_sec.weight as week_day_time_weight_by30_sec,
+                time_weight_for_week_day_by300_sec_last_4_week.weight as last_4_week_week_day_300_sec_weight,
+                time_weight_for_week_day_by300_sec_last_4_week.time_group as week_day_300_sec_group
             FROM train
                 join last_14_days_sampling 
                     on train.break_flight_id = last_14_days_sampling.id 
@@ -50,6 +55,30 @@ class CatboostTrainFlow(AbstractTrainFlow):
                     (EXTRACT(epoch FROM real_flight_start) / 600)::int = time_weight_for_week_day.time_group
                         AND
                     extract(dow from real_date) + 1 = time_weight_for_week_day.week_day_2
+                )
+                join time_weight_for_week_day_by5_min on 
+                (
+                    (EXTRACT(epoch FROM real_flight_start) / 300)::int = time_weight_for_week_day_by5_min.time_group
+                        AND
+                    extract(dow from real_date) + 1 = time_weight_for_week_day_by5_min.week_day_2
+                )
+                join time_weight_for_week_day_by150_sec on 
+                (
+                    (EXTRACT(epoch FROM real_flight_start) / 150)::int = time_weight_for_week_day_by150_sec.time_group
+                        AND
+                    extract(dow from real_date) + 1 = time_weight_for_week_day_by150_sec.week_day_2
+                )
+                left join time_weight_for_week_day_by30_sec on 
+                (
+                    (EXTRACT(epoch FROM real_flight_start) / 30)::int = time_weight_for_week_day_by30_sec.time_group
+                        AND
+                    extract(dow from real_date) + 1 = time_weight_for_week_day_by30_sec.week_day_2
+                )
+                left join time_weight_for_week_day_by300_sec_last_4_week on (
+                    (EXTRACT(epoch FROM real_flight_start) / 300)::int 
+                        = time_weight_for_week_day_by300_sec_last_4_week.time_group
+                        AND
+                    extract(dow from real_date) + 1 = time_weight_for_week_day_by300_sec_last_4_week.week_day_2
                 )
             where tvr_index != 0
         """
@@ -84,25 +113,31 @@ class CatboostTrainFlow(AbstractTrainFlow):
             'pc_effir_rate',
             'pc_blocks_per_program', # to week ??
 
-            'genre_avg_int_target', # to week ??
-            'genre_effir_rate', # to week ??
+            # 'genre_avg_int_target', # to week ??
+            # 'genre_effir_rate', # to week ??
             'genre_blocks_per_program', # to week ??
 
-            'time_wight',
+            'time_weight',
             'time_group',
-            'week_day_time_wight',
+            'week_day_time_weight',
+            'week_day_time_weight_by5_min',
+            'week_day_time_weight_by150_sec',
+            'week_day_time_weight_by30_sec',
+
+            'last_4_week_week_day_300_sec_weight',
+            'week_day_300_sec_group',
         ]
         bool_features = [
             'night_program',
             'extra_holiday',
-            'holiday',
+            # 'holiday',
         ]
         text_features = [  # enums
-            'programme',              # eaten out by programme_id
-            'programme_category',     # eaten out by programme_category_id
-            'programme_genre',        # to week
-            'break_distribution',     # eaten out by break_distribution_id
-            'break_content',          # to week
+            # 'programme',              # eaten out by programme_id
+            # 'programme_category',     # eaten out by programme_category_id
+            # 'programme_genre',        # to week
+            # 'break_distribution',     # eaten out by break_distribution_id
+            # 'break_content',          # to week
         ]
         used = target + num_features + bool_features + exclude_but_keep + text_features
         predictors = num_features + bool_features + text_features
@@ -121,8 +156,8 @@ class CatboostTrainFlow(AbstractTrainFlow):
             X_train, X_test, y_train, y_test = train_test_split(
                 prepared_data.features_frame,
                 prepared_data.target_frame,
-                test_size=0.1,
-                random_state=41,
+                test_size=0.2,
+                random_state=119,
             )
         else:
             X_train, y_train = prepared_data.features_frame, prepared_data.target_frame
@@ -130,7 +165,7 @@ class CatboostTrainFlow(AbstractTrainFlow):
 
         # Prepare model
         model = catboost.CatBoostRegressor(
-            iterations=100,
+            iterations=150,
             verbose=True,
             cat_features=prepared_data.text_features,
             loss_function='LogLinQuantile',
