@@ -73,8 +73,8 @@ insert into train_predict_by_p select * from train_predict_for_p_26;
 select
 --     score * 0.01499250375 as score,
 --     tvr_index,
---    programme,
-    sum(abs(score  - train.tvr_index) / train.tvr_index)  / count(break_flight_id) as mape
+--   programme,
+    (sum(abs(score  - train.tvr_index) / train.tvr_index)  / count(break_flight_id))::numeric(16,5) as mape_on_all_train
 from
     train
 join train_predict_by_p on train.break_flight_id = train_predict_by_p.id

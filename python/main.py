@@ -3,14 +3,14 @@ import logging
 import sshtunnel
 from sqlalchemy import create_engine
 
-from model_005_separate_models_per_program import CatboostTrainFlow as TrainFlow
+from model_006_xgboost import XGBoostTrainFlow as TrainFlow
 logging.getLogger().setLevel(logging.INFO)
 
 
 def learn_on_agent_requests():
     train_flow = TrainFlow(db_engine=engine, sampling_table_name='last_7_days_sampling')
 
-    data = train_flow.prepare_features(for_test=None, table_name="train", program_id_filter=22)
+    data = train_flow.prepare_features(for_test=None, table_name="train")
     # test_data = train_flow.prepare_features(for_test=True, table_name="learn", program_id_filter=None)
     train_flow.learn(data)
     # train_flow.learn(data, test_prepared_data=None)
@@ -37,6 +37,23 @@ def apply_to_final_test_requests():
     train_flow.apply_model_in_db(data, table_name="test_data_predict")
 
 
+def run_separate_model_for_program_id():
+    for program_id in range(1, 27):
+        train_flow = TrainFlow(db_engine=engine, sampling_table_name='last_7_days_sampling')
+        data = train_flow.prepare_features(for_test=None, table_name="train", program_id_filter=program_id)
+        train_flow.learn(data)
+        train_flow.save_model()
+        train_flow.apply_model_in_db(data, table_name=f"train_predict_for_p_{program_id}")
+        # data = train_flow.prepare_features(
+        #     for_test=None,
+        #     table_name="test_data",
+        #     sql_features_table_name="test_data_003_features",
+        #     program_id_filter=program_id,
+        # )
+        # train_flow.load_model()
+        # train_flow.apply_model_in_db(data, table_name=f"test_data_predict_for_p_{program_id}")
+
+
 if __name__ == '__main__':
     with sshtunnel.open_tunnel(
             ('158.160.26.131', 22),
@@ -48,19 +65,6 @@ if __name__ == '__main__':
         engine = create_engine(f'postgresql://xmashack:xmashack@localhost:{server.local_bind_port}/xmas_hack_adds_predict')
         logging.info('START')
 
-        for program_id in range(1, 27):
-            train_flow = TrainFlow(db_engine=engine, sampling_table_name='last_7_days_sampling')
-            data = train_flow.prepare_features(for_test=None, table_name="train", program_id_filter=program_id)
-            train_flow.learn(data)
-            train_flow.save_model()
-            train_flow.apply_model_in_db(data, table_name=f"train_predict_for_p_{program_id}")
-            # data = train_flow.prepare_features(
-            #     for_test=None,
-            #     table_name="test_data",
-            #     sql_features_table_name="test_data_003_features",
-            #     program_id_filter=program_id,
-            # )
-            # train_flow.load_model()
-            # train_flow.apply_model_in_db(data, table_name=f"test_data_predict_for_p_{program_id}")
+        learn_on_agent_requests()
 
         # apply_to_final_test_requests()

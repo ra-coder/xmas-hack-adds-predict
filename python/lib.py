@@ -101,4 +101,18 @@ class AbstractTrainFlow:
 
 def mape(actual, pred, epsilon=0.0):
     actual, pred = np.array(actual), np.array(pred)
-    return np.mean(np.abs((actual - pred) / (actual + epsilon))) # * 100
+    return np.mean(np.abs((actual - pred) / (actual + epsilon)))  # * 100
+
+
+def mape_objective(y_true, y_pred):
+    """
+    grad (ndarray) – The first order of gradient.
+    hess (ndarray) – The second order of gradient.
+    """
+    y_true, y_pred = np.array(y_true), np.array(y_pred)
+    epsilon = (y_pred - y_true) / 10
+
+    grad = (abs(y_true - y_pred) / (y_true) - abs(y_true - y_pred - epsilon) / (y_true)) / epsilon
+    hess = y_pred * 0
+
+    return grad, hess
