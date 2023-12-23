@@ -1,0 +1,5 @@
+catboost
+scikit-learn
+sqlalchemy
+Pandas==2.1.4
+sshtunnel
