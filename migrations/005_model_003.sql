@@ -8,7 +8,9 @@ create table train_003_features (
     program_duration_ts int,
     int_target int4,
     week_day int,
-    real_week_day int
+    real_week_day int,
+    week_day_2 int,
+    real_week_day_2 int
 );
 create index on train_003_features (id);
 
@@ -22,7 +24,9 @@ insert into train_003_features
         program_duration_ts,
         int_target,
         week_day,
-        real_week_day
+        real_week_day,
+        week_day_2,
+        real_week_day_2
     )
 select
     break_flight_id as id,
@@ -33,5 +37,7 @@ select
     EXTRACT(epoch FROM program_duration) as program_duration_ts,
     (tvr_index / 0.01499250375)::int + 1 as int_target,
     extract(dow from date) as week_day,
-    extract(dow from real_program_start_date) as real_week_day
+    extract(dow from date) + 1 as week_day_2,
+    extract(dow from real_program_start_date) as real_week_day,
+    extract(dow from real_program_start_date) + 1 as real_week_day_2
 from train;

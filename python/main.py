@@ -3,7 +3,7 @@ import logging
 import sshtunnel
 from sqlalchemy import create_engine
 
-from model_003_start import CatboostTrainFlow as TrainFlow
+from model_004_avg_stst import CatboostTrainFlow as TrainFlow
 logging.getLogger().setLevel(logging.INFO)
 
 
