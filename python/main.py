@@ -13,6 +13,9 @@ def learn_on_agent_requests():
     data = train_flow.prepare_features(for_test=False)
     test_data = train_flow.prepare_features(for_test=True)
     train_flow.learn(data, test_data)
+
+    train_flow.learn(data, test_prepared_data=None)
+
     # train_flow.save_model()
     # train_flow.load_model()
     # train_flow.apply_model_in_db()
