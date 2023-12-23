@@ -173,10 +173,11 @@ class CatboostTrainFlow(AbstractTrainFlow):
 
         # Prepare model
         model = catboost.CatBoostRegressor(
-            iterations=150,
+            iterations=300,
             verbose=True,
             cat_features=prepared_data.text_features,
-            loss_function='LogLinQuantile',
+            loss_function='MAPE',
+            # loss_function='LogLinQuantile',
         )
         # Fit model
         model.fit(X_train, y_train, eval_set=(X_test, y_test), verbose_eval=True)

@@ -48,6 +48,19 @@ if __name__ == '__main__':
         engine = create_engine(f'postgresql://xmashack:xmashack@localhost:{server.local_bind_port}/xmas_hack_adds_predict')
         logging.info('START')
 
-        learn_on_agent_requests()
+        for program_id in range(1, 27):
+            train_flow = TrainFlow(db_engine=engine, sampling_table_name='last_7_days_sampling')
+            data = train_flow.prepare_features(for_test=None, table_name="train", program_id_filter=program_id)
+            train_flow.learn(data)
+            train_flow.save_model()
+            train_flow.apply_model_in_db(data, table_name=f"train_predict_for_p_{program_id}")
+            # data = train_flow.prepare_features(
+            #     for_test=None,
+            #     table_name="test_data",
+            #     sql_features_table_name="test_data_003_features",
+            #     program_id_filter=program_id,
+            # )
+            # train_flow.load_model()
+            # train_flow.apply_model_in_db(data, table_name=f"test_data_predict_for_p_{program_id}")
 
         # apply_to_final_test_requests()
