@@ -53,24 +53,24 @@ class CatboostTrainFlow(AbstractTrainFlow):
             FROM {table_name}
                 {for_test_join}
                 join {sql_features_table_name} on {sql_features_table_name}.id = {table_name}.break_flight_id
-                join programmes on {table_name}.programme_id = programmes.id
-                join programme_categories on programme_categories.id = {table_name}.programme_category_id 
-                join programme_genres on programme_genres.id = {table_name}.programme_genre_id
+                left join programmes on {table_name}.programme_id = programmes.id
+                left join programme_categories on programme_categories.id = {table_name}.programme_category_id 
+                left join programme_genres on programme_genres.id = {table_name}.programme_genre_id
                 left join calendar on {table_name}.date = calendar.date
-                join time_weight on (EXTRACT(epoch FROM real_flight_start) / 600)::int = time_weight.time_group
-                join time_weight_for_week_day on 
+                left join time_weight on (EXTRACT(epoch FROM real_flight_start) / 600)::int = time_weight.time_group
+                left join time_weight_for_week_day on 
                 (
                     (EXTRACT(epoch FROM real_flight_start) / 600)::int = time_weight_for_week_day.time_group
                         AND
                     extract(dow from real_date) + 1 = time_weight_for_week_day.week_day_2
                 )
-                join time_weight_for_week_day_by5_min on 
+                left join time_weight_for_week_day_by5_min on 
                 (
                     (EXTRACT(epoch FROM real_flight_start) / 300)::int = time_weight_for_week_day_by5_min.time_group
                         AND
                     extract(dow from real_date) + 1 = time_weight_for_week_day_by5_min.week_day_2
                 )
-                join time_weight_for_week_day_by150_sec on 
+                left join time_weight_for_week_day_by150_sec on 
                 (
                     (EXTRACT(epoch FROM real_flight_start) / 150)::int = time_weight_for_week_day_by150_sec.time_group
                         AND
