@@ -18,7 +18,8 @@ create table train
     real_flight_start       time,
     real_date               date,
     program_duration        time,
-    real_program_start_date date
+    real_program_start_date date,
+    real_program_start      time
 
 );
 

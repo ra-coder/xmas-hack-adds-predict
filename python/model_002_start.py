@@ -10,34 +10,40 @@ from sqlalchemy.sql import insert
 from lib import AbstractTrainFlow, PreparedResult, mape
 
 
-class CatboostTrainFlow001(AbstractTrainFlow):
-    model_name = 'model_001'
+class CatboostTrainFlow(AbstractTrainFlow):
+    model_name = 'model_002'
 
     def prepare_features(
-            self,
-            limit: int | None = None,
-            filter_for_test: bool = False,
-            table_prefix: str = 'train',
+        self,
+        limit: int | None = None,
+        filter_for_test: bool = False,
+        table_prefix: str = 'train',
     ) -> PreparedResult:
         select_query = f""" --sql
             SELECT 
-                train.* 
+                train.*,
+                train_002_features.* 
             FROM train
-                join 
-                    last_7_days_sampling 
+                join last_7_days_sampling 
                     on train.break_flight_id = last_7_days_sampling.id 
                     and for_test = FALSE
+                join train_002_features on train_002_features.id = train.break_flight_id 
         """
         if limit is not None and isinstance(limit, int):
             select_query += f" LIMIT {limit}"
         train_data = pd.read_sql(select_query, self.db_engine)
         logging.info('Data select done')
 
-        target = ['tvr_index']
+        target = ['int_target']
         exclude_but_keep = ['id']
         num_features = [
+            'real_flight_start_ts',
+            'real_program_start_ts',
+            'duration_ts',
+            'program_duration_ts',
         ]
         bool_features = [
+            'night_program',
         ]
         text_features = [  # enums
             'programme',
@@ -67,9 +73,10 @@ class CatboostTrainFlow001(AbstractTrainFlow):
         )
         # Prepare model
         model = catboost.CatBoostRegressor(
-            iterations=100,
+            iterations=200,
             verbose=True,
             cat_features=prepared_data.text_features,
+            loss_function='MAPE'
         )
         # Fit model
         model.fit(X_train, y_train, eval_set=(X_test, y_test))
@@ -135,16 +142,21 @@ class CatboostTrainFlow001(AbstractTrainFlow):
             session.commit()
             logging.info('saved to db finished')
 
-"""
-bestTest = 0.3455519056
-bestIteration = 78
 
-Shrink model to first 79 iterations.
-36961.07534674326
-           Feature Id  Importances
-0           programme    52.322735
-1  programme_category    34.339416
-2  break_distribution     8.217940
-3       break_content     3.116209
-4     programme_genre     2.003700
+"""
+bestTest = 15.91714157
+bestIteration = 199
+
+MAPE score: 190.28158065718318
+              Feature Id  Importances
+0   real_flight_start_ts    23.805712
+1  real_program_start_ts    21.361495
+2        programme_genre    14.340536
+3     programme_category    13.117138
+4    program_duration_ts    12.158348
+5              programme     6.933843
+6     break_distribution     5.193986
+7            duration_ts     2.556119
+8          break_content     0.524225
+9          night_program     0.008598
 """

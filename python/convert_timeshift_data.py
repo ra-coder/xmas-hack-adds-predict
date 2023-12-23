@@ -34,6 +34,7 @@ def extended_lines_generator(reader: csv.DictReader) -> Generator:
         duration = flight_end - flight_start
 
         line["program_duration"] = program_duration
+        line["real_program_start"] = programme_start
         line["real_program_start_date"] = real_program_start_date.strftime('%Y-%m-%d')
 
         line["duration"] = duration
@@ -61,6 +62,8 @@ if __name__ == '__main__':
                 "real_date",
                 "program_duration",
                 "real_program_start_date",
+                "real_program_flight_start",
+                "real_program_start"
             ))
             writer = csv.DictWriter(fixed_file, fieldnames=fild_names, delimiter=',')
             writer.writeheader()
