@@ -144,19 +144,24 @@ class CatboostTrainFlow(AbstractTrainFlow):
 
 
 """
-bestTest = 15.91714157
+198:	learn: 0.4447996	test: 0.4750055	best: 0.4750055 (198)	total: 10.5s	remaining: 52.6ms
+199:	learn: 0.4436217	test: 0.4738118	best: 0.4738118 (199)	total: 10.5s	remaining: 0us
+
+bestTest = 0.4738118452
 bestIteration = 199
 
-MAPE score: 190.28158065718318
+MAPE score: 110.03238697636297
               Feature Id  Importances
-0   real_flight_start_ts    23.805712
-1  real_program_start_ts    21.361495
-2        programme_genre    14.340536
-3     programme_category    13.117138
-4    program_duration_ts    12.158348
-5              programme     6.933843
-6     break_distribution     5.193986
-7            duration_ts     2.556119
-8          break_content     0.524225
-9          night_program     0.008598
+0    program_duration_ts    53.162618
+1  real_program_start_ts    16.566758
+2            duration_ts    16.080083
+3   real_flight_start_ts    13.018479
+4          break_content     0.696699
+5          night_program     0.323204
+6     break_distribution     0.152159
+7              programme     0.000000
+8     programme_category     0.000000
+9        programme_genre     0.000000
+
+Process finished with exit code 0
 """
