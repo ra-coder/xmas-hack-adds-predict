@@ -87,53 +87,53 @@ class CatboostTrainFlow001(AbstractTrainFlow):
         from_file_model.load_model(self.model_name)
         self.model = from_file_model
 
-    def apply_model_in_db(self, to_client=False, to_final_test=False):
-        assert self.model is not None
-        Session = sessionmaker(bind=self.db_engine)
-        with Session() as session:
-            table_name = f"{self.model_name}"
-            session.execute(text(f"DROP TABLE if exists {table_name};"))
-            session.execute(text(
-                f"""
-                    CREATE TABLE {table_name} (
-                        id int primary key,
-                        predict bool,
-                        score float
-                    );
-                """
-            ))
-            logging.info('result table created')
-
-            table_prefix = 'train'
-            data = self.prepare_features(table_prefix=table_prefix)
-            ids = data.data[['break_flight_id']]
-            predicts = self.model.predict(data.features_frame)
-            predict_scores = self.model.predict_proba(data.features_frame)
-            logging.info('predicts calculated')
-
-            Base = declarative_base()
-
-            class PredictTable(Base):
-                __tablename__ = table_name
-                id = Column(Integer, primary_key=True)
-                predict = Column(Boolean)
-                score = Column(Float)
-
-            id_with_predict_and_score = list(zip(ids['break_flight_id'], predicts, predict_scores))
-            chunk_size = 10000
-            for chunk in range(0, (len(id_with_predict_and_score) // chunk_size) + 1):
-                if chunk * chunk_size < len(id_with_predict_and_score):
-                    session.execute(
-                        insert(PredictTable),
-                        [
-                            {'id': id_value, 'predict': predict_value == 'True', 'score': score_value[1]}
-                            for id_value, predict_value, score_value
-                            in id_with_predict_and_score[chunk * chunk_size:(chunk + 1) * chunk_size]
-                        ],
-                    )
-                logging.info('saved chunk %r', chunk)
-            session.commit()
-            logging.info('saved to db finished')
+    # def apply_model_in_db(self, to_client=False, to_final_test=False):
+    #     assert self.model is not None
+    #     Session = sessionmaker(bind=self.db_engine)
+    #     with Session() as session:
+    #         table_name = f"{self.model_name}"
+    #         session.execute(text(f"DROP TABLE if exists {table_name};"))
+    #         session.execute(text(
+    #             f"""
+    #                 CREATE TABLE {table_name} (
+    #                     id int primary key,
+    #                     predict bool,
+    #                     score float
+    #                 );
+    #             """
+    #         ))
+    #         logging.info('result table created')
+    #
+    #         table_prefix = 'train'
+    #         data = self.prepare_features(table_prefix=table_prefix)
+    #         ids = data.data[['break_flight_id']]
+    #         predicts = self.model.predict(data.features_frame)
+    #         predict_scores = self.model.predict_proba(data.features_frame)
+    #         logging.info('predicts calculated')
+    #
+    #         Base = declarative_base()
+    #
+    #         class PredictTable(Base):
+    #             __tablename__ = table_name
+    #             id = Column(Integer, primary_key=True)
+    #             predict = Column(Boolean)
+    #             score = Column(Float)
+    #
+    #         id_with_predict_and_score = list(zip(ids['break_flight_id'], predicts, predict_scores))
+    #         chunk_size = 10000
+    #         for chunk in range(0, (len(id_with_predict_and_score) // chunk_size) + 1):
+    #             if chunk * chunk_size < len(id_with_predict_and_score):
+    #                 session.execute(
+    #                     insert(PredictTable),
+    #                     [
+    #                         {'id': id_value, 'predict': predict_value == 'True', 'score': score_value[1]}
+    #                         for id_value, predict_value, score_value
+    #                         in id_with_predict_and_score[chunk * chunk_size:(chunk + 1) * chunk_size]
+    #                     ],
+    #                 )
+    #             logging.info('saved chunk %r', chunk)
+    #         session.commit()
+    #         logging.info('saved to db finished')
 
 """
 bestTest = 0.3455519056

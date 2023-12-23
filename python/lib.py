@@ -83,7 +83,7 @@ class AbstractTrainFlow:
         """
         raise NotImplementedError
 
-    def learn(self, prepared_data: PreparedResult):
+    def learn(self, prepared_data: PreparedResult, test_prepared_data: None | PreparedResult = None):
         raise NotImplementedError
 
     def save_model(self):
