@@ -3,21 +3,21 @@ import logging
 import sshtunnel
 from sqlalchemy import create_engine
 
-from model_004_avg_stst import CatboostTrainFlow as TrainFlow
+from model_005_separate_models_per_program import CatboostTrainFlow as TrainFlow
 logging.getLogger().setLevel(logging.INFO)
 
 
 def learn_on_agent_requests():
     train_flow = TrainFlow(db_engine=engine, sampling_table_name='last_7_days_sampling')
 
-    data = train_flow.prepare_features(for_test=False, table_name="learn")
-    test_data = train_flow.prepare_features(for_test=True, table_name="learn")
-    train_flow.learn(data, test_data)
+    data = train_flow.prepare_features(for_test=None, table_name="train", program_id_filter=22)
+    # test_data = train_flow.prepare_features(for_test=True, table_name="learn", program_id_filter=None)
+    train_flow.learn(data)
     # train_flow.learn(data, test_prepared_data=None)
-    train_flow.save_model()
-    train_flow.load_model()
-    train_flow.apply_model_in_db(data, table_name="predict_on_learn")
-    train_flow.apply_model_in_db(test_data, table_name="predict_on_test")
+    # train_flow.save_model()
+    # train_flow.load_model()
+    # train_flow.apply_model_in_db(data, table_name="predict_on_learn")
+    # train_flow.apply_model_in_db(test_data, table_name="predict_on_test")
 
 
 def apply_to_final_test_requests():
@@ -48,6 +48,6 @@ if __name__ == '__main__':
         engine = create_engine(f'postgresql://xmashack:xmashack@localhost:{server.local_bind_port}/xmas_hack_adds_predict')
         logging.info('START')
 
-        #learn_on_agent_requests()
+        learn_on_agent_requests()
 
-        apply_to_final_test_requests()
+        # apply_to_final_test_requests()

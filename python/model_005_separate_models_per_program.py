@@ -11,7 +11,7 @@ from lib import AbstractTrainFlow, PreparedResult, mape
 
 
 class CatboostTrainFlow(AbstractTrainFlow):
-    model_name = 'model_004'
+    model_name = 'model_005'
 
     def prepare_features(
         self,
@@ -19,12 +19,14 @@ class CatboostTrainFlow(AbstractTrainFlow):
         for_test: bool | None = False,
         table_name: str = "train",
         sql_features_table_name: str = "train_003_features",  # test_data_003_features
+        program_id_filter: int | None = None,
     ) -> PreparedResult:
         for_test_join = f"""
             join last_14_days_sampling 
                 on {table_name}.break_flight_id = last_14_days_sampling.id     
                 and for_test = {for_test}  
         """ if for_test is not None else ""
+        program_id_filter = f" AND programmes.id = {program_id_filter}" if isinstance(program_id_filter, int) else ''
         select_query = f""" --sql
             SELECT 
                 {table_name}.*,
@@ -100,13 +102,13 @@ class CatboostTrainFlow(AbstractTrainFlow):
             'real_program_start_ts',
             'duration_ts',
             'program_duration_ts',
-            'week_day',  # eaten by real_week_day_2
-            'real_week_day',  # eaten by real_week_day_2
-            'week_day_2',  # eaten by real_week_day_2
+            'week_day',        # eaten by real_week_day_2
+            'real_week_day',   # eaten by real_week_day_2
+            'week_day_2',      # eaten by real_week_day_2
             'real_week_day_2',
-            'week_day_3',  # to week ??
-            'programme_id',  # to week ??
-            'programme_category_id',  # to week ??
+            'week_day_3', # to week ??
+            'programme_id', # to week ??
+            'programme_category_id', # to week ??
             'programme_genre_id',  # to week
             'break_distribution_id',
             'break_content_id',  # to week
@@ -117,11 +119,11 @@ class CatboostTrainFlow(AbstractTrainFlow):
 
             'pc_avg_int_target',
             'pc_effir_rate',
-            'pc_blocks_per_program',  # to week ??
+            'pc_blocks_per_program', # to week ??
 
             # 'genre_avg_int_target', # to week ??
             # 'genre_effir_rate', # to week ??
-            'genre_blocks_per_program',  # to week ??
+            'genre_blocks_per_program', # to week ??
 
             'time_weight',
             'time_group',
