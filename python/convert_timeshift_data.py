@@ -44,8 +44,33 @@ def extended_lines_generator(reader: csv.DictReader) -> Generator:
 
 
 if __name__ == '__main__':
-    with open("../data/train_fixed_dates.csv", "w", newline='') as fixed_file:
-        with open("../data/train.csv") as file:
+    # with open("../data/train_fixed_dates.csv", "w", newline='') as fixed_file:
+    #     with open("../data/train.csv") as file:
+    #         reader = csv.DictReader(file, delimiter=',',)
+    #         fild_names = [
+    #             name for name in reader.fieldnames
+    #             if name not in (
+    #                 'break_flight_start',
+    #                 'break_flight_end',
+    #                 'programme_flight_end',
+    #                 'programme_flight_start',
+    #             )
+    #         ]
+    #         fild_names.extend((
+    #             "duration",
+    #             "real_flight_start",
+    #             "real_date",
+    #             "program_duration",
+    #             "real_program_start_date",
+    #             "real_program_flight_start",
+    #             "real_program_start"
+    #         ))
+    #         writer = csv.DictWriter(fixed_file, fieldnames=fild_names, delimiter=',')
+    #         writer.writeheader()
+    #         writer.writerows(extended_lines_generator(reader))
+
+    with open("../data/test_fixed_dates.csv", "w", newline='') as fixed_file:
+        with open("../data/test_data.csv") as file:
             reader = csv.DictReader(file, delimiter=',',)
             fild_names = [
                 name for name in reader.fieldnames

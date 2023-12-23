@@ -1,0 +1,5 @@
+tvr_index,date,break_flight_id,break_content,break_distribution,programme,programme_flight_start,programme_flight_end,programme_category,programme_genre,duration,real_flight_start,real_date
+
+0.6146926537,2023-01-02,4870830561,Commercial,Network,"Telekanal ""Dobroe utro""",8:00:13,10:00:14,Morning airplay,Entertainment programs,0:04:07,8:17:33,2023-01-02
+
+0.8695652174,2023-01-02,4870830614,Commercial,Network,"Telekanal ""Dobroe utro""",8:00:13,10:00:14,Morning airplay,Entertainment programs,0:04:07,8:34:45,2023-01-02

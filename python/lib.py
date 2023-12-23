@@ -95,7 +95,7 @@ class AbstractTrainFlow:
     def apply_model(self, prepared_data: PreparedResult):
         raise NotImplementedError
 
-    def apply_model_in_db(self):
+    def apply_model_in_db(self, prepared_data: PreparedResult, table_name: str):
         raise NotImplementedError
 
 

@@ -13,12 +13,11 @@ def learn_on_agent_requests():
     data = train_flow.prepare_features(for_test=False)
     test_data = train_flow.prepare_features(for_test=True)
     train_flow.learn(data, test_data)
-
-    train_flow.learn(data, test_prepared_data=None)
-
-    # train_flow.save_model()
-    # train_flow.load_model()
-    # train_flow.apply_model_in_db()
+    # train_flow.learn(data, test_prepared_data=None)
+    train_flow.save_model()
+    train_flow.load_model()
+    train_flow.apply_model_in_db(data, table_name="predict_on_learn")
+    train_flow.apply_model_in_db(test_data, table_name="predict_on_test")
 
 
 def apply_to_final_test_requests():
@@ -30,7 +29,7 @@ def apply_to_final_test_requests():
 
     train_flow = TrainFlow(db_engine=engine)
     train_flow.load_model()
-    train_flow.apply_model_in_db(to_final_test=True)
+    # train_flow.apply_model_in_db(to_final_test=True)
 
 
 if __name__ == '__main__':
