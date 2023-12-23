@@ -99,6 +99,6 @@ class AbstractTrainFlow:
         raise NotImplementedError
 
 
-def mape(actual, pred, epsilon=0.00001):
+def mape(actual, pred, epsilon=0.0):
     actual, pred = np.array(actual), np.array(pred)
     return np.mean(np.abs((actual - pred) / (actual + epsilon))) * 100

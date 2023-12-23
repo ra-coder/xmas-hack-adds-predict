@@ -42,6 +42,11 @@ class CatboostTrainFlow(AbstractTrainFlow):
             'program_duration_ts',
             'week_day',
             'real_week_day',
+            'programme_id',
+            'programme_category_id',
+            'programme_genre_id',
+            'break_distribution_id',
+            'break_content_id',
         ]
         bool_features = [
             'night_program',
@@ -79,16 +84,18 @@ class CatboostTrainFlow(AbstractTrainFlow):
 
         # Prepare model
         model = catboost.CatBoostRegressor(
-            iterations=10,
+            iterations=500,
             verbose=True,
             cat_features=prepared_data.text_features,
-            loss_function='MAPE'
+            loss_function='LogLinQuantile',
         )
         # Fit model
-        model.fit(X_train, y_train, eval_set=(X_test, y_test))
+        model.fit(X_train, y_train, eval_set=(X_test, y_test), verbose_eval=True)
         self.model = model
         pred = model.predict(X_test)
+        learn_pred = model.predict(X_train[:10000])
         print(f"MAPE score: {mape(y_test, pred)}")
+        print(f"MAPE learn score: {mape(y_train[:10000], learn_pred)}")
         print(model.get_feature_importance(prettified=True))
 
     def save_model(self):
@@ -170,4 +177,75 @@ MAPE score: 98.97009473402866
 9         programme_genre     0.000000
 10     break_distribution     0.000000
 11          break_content     0.000000
+"""
+
+"""
+14:	learn: 0.7235537	test: 0.7551189	best: 0.7551189 (14)	total: 758ms	remaining: 0us
+
+bestTest = 0.7551189206
+bestIteration = 14
+
+MAPE score: 103.08098408179389
+               Feature Id  Importances
+0            programme_id    56.829520
+1   real_program_start_ts    18.213506
+2                week_day    10.975720
+3           real_week_day     9.302051
+4    real_flight_start_ts     3.619870
+5             duration_ts     0.963995
+6           night_program     0.095338
+7     program_duration_ts     0.000000
+8               programme     0.000000
+9      programme_category     0.000000
+10        programme_genre     0.000000
+11     break_distribution     0.000000
+12          break_content     0.000000
+
+Process finished with exit code 0
+"""
+
+"""
+8:	learn: 0.7631917	test: 0.8120123	best: 0.8120123 (8)	total: 174ms	remaining: 19.3ms
+9:	learn: 0.7541689	test: 0.7995388	best: 0.7995388 (9)	total: 179ms	remaining: 0us
+
+bestTest = 0.7995388068
+bestIteration = 9
+
+MAPE score: 100.30184523043692
+               Feature Id  Importances
+0   programme_category_id    20.368951
+1            programme_id    15.045719
+2    real_flight_start_ts    14.649348
+3     program_duration_ts    14.535969
+4        break_content_id    12.998691
+5   real_program_start_ts    10.338096
+6           real_week_day     6.662879
+7                week_day     4.426057
+8             duration_ts     0.974290
+9      programme_genre_id     0.000000
+10  break_distribution_id     0.000000
+11          night_program     0.000000
+
+Process finished with exit code 0
+"""
+
+"""
+bestTest = 30.61871484
+49:	learn: 32.1693683	test: 30.6187148	best: 30.6187148 (49)	total: 412ms	remaining: 0us
+
+bestTest = 30.61871484
+bestIteration = 49
+
+MAPE score: 93.96205827160942
+MAPE learn score: 96.2229096900353
+              Feature Id  Importances
+0  real_program_start_ts    40.665579
+1  programme_category_id    35.551326
+2   real_flight_start_ts    10.844756
+3           programme_id     4.554597
+4    program_duration_ts     2.676139
+5       break_content_id     2.116701
+6               week_day     1.508222
+7          real_week_day     1.470593
+8            duration_ts     0.612088
 """
