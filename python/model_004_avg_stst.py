@@ -16,12 +16,20 @@ class CatboostTrainFlow(AbstractTrainFlow):
     def prepare_features(
         self,
         limit: int | None = None,
-        for_test: bool = False,
+        for_test: bool | None = False,
+        table_name: str = "train",
+        sql_features_table_name: str = "train_003_features",  # test_data_003_features
     ) -> PreparedResult:
+        for_test_join = f"""
+            join last_14_days_sampling 
+                on {table_name}.break_flight_id = last_14_days_sampling.id     
+                and for_test = {for_test}  
+        """ if for_test is not None else ""
+
         select_query = f""" --sql
             SELECT 
-                train.*,
-                train_003_features.* ,
+                {table_name}.*,
+                {sql_features_table_name}.* ,
                 programme_categories.avg_int_target as pc_avg_int_target,
                 programme_categories.effir_rate as pc_effir_rate,
                 programme_categories.blocks_per_program as pc_blocks_per_program,
@@ -31,7 +39,9 @@ class CatboostTrainFlow(AbstractTrainFlow):
                 programme_genres.avg_int_target as genre_avg_int_target,
                 programme_genres.effir_rate as genre_effir_rate,
                 programme_genres.blocks_per_program as genre_blocks_per_program,
-                calendar.*,
+                calendar.extra_holiday, 
+                calendar.holiday, 
+                calendar.week_day_3,
                 time_weight.time_group,
                 time_weight.weight as time_weight,
                 time_weight_for_week_day.weight as week_day_time_weight,
@@ -40,15 +50,13 @@ class CatboostTrainFlow(AbstractTrainFlow):
                 time_weight_for_week_day_by30_sec.weight as week_day_time_weight_by30_sec,
                 time_weight_for_week_day_by300_sec_last_4_week.weight as last_4_week_week_day_300_sec_weight,
                 time_weight_for_week_day_by300_sec_last_4_week.time_group as week_day_300_sec_group
-            FROM train
-                join last_14_days_sampling 
-                    on train.break_flight_id = last_14_days_sampling.id 
-                    and for_test = {for_test}
-                join train_003_features on train_003_features.id = train.break_flight_id
-                join programmes on train.programme_id = programmes.id
-                join programme_categories on programme_categories.id = train.programme_category_id 
-                join programme_genres on programme_genres.id = train.programme_genre_id
-                left join calendar on train.date = calendar.date
+            FROM {table_name}
+                {for_test_join}
+                join {sql_features_table_name} on {sql_features_table_name}.id = {table_name}.break_flight_id
+                join programmes on {table_name}.programme_id = programmes.id
+                join programme_categories on programme_categories.id = {table_name}.programme_category_id 
+                join programme_genres on programme_genres.id = {table_name}.programme_genre_id
+                left join calendar on {table_name}.date = calendar.date
                 join time_weight on (EXTRACT(epoch FROM real_flight_start) / 600)::int = time_weight.time_group
                 join time_weight_for_week_day on 
                 (
@@ -80,7 +88,6 @@ class CatboostTrainFlow(AbstractTrainFlow):
                         AND
                     extract(dow from real_date) + 1 = time_weight_for_week_day_by300_sec_last_4_week.week_day_2
                 )
-            where tvr_index != 0
         """
         if limit is not None and isinstance(limit, int):
             select_query += f" LIMIT {limit}"
@@ -224,7 +231,7 @@ class CatboostTrainFlow(AbstractTrainFlow):
                     session.execute(
                         insert(PredictTable),
                         [
-                            {'id': id_value, 'score': score}
+                            {'id': id_value, 'score': score * 0.01499250375}
                             for id_value, score
                             in id_with_predict_and_score[chunk * chunk_size:(chunk + 1) * chunk_size]
                         ],

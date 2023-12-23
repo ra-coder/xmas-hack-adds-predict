@@ -10,8 +10,8 @@ logging.getLogger().setLevel(logging.INFO)
 def learn_on_agent_requests():
     train_flow = TrainFlow(db_engine=engine, sampling_table_name='last_7_days_sampling')
 
-    data = train_flow.prepare_features(for_test=False)
-    test_data = train_flow.prepare_features(for_test=True)
+    data = train_flow.prepare_features(for_test=False, table_name="learn")
+    test_data = train_flow.prepare_features(for_test=True, table_name="learn")
     train_flow.learn(data, test_data)
     # train_flow.learn(data, test_prepared_data=None)
     train_flow.save_model()
@@ -27,9 +27,14 @@ def apply_to_final_test_requests():
 
     # Some sQL from  0027_add_support_model_score.sql TODO move to code
 
-    train_flow = TrainFlow(db_engine=engine)
+    train_flow = TrainFlow(db_engine=engine, sampling_table_name='last_7_days_sampling')
+    data = train_flow.prepare_features(
+        for_test=None,
+        table_name="test_data",
+        sql_features_table_name="test_data_003_features",
+    )
     train_flow.load_model()
-    # train_flow.apply_model_in_db(to_final_test=True)
+    train_flow.apply_model_in_db(data, table_name="test_data_predict")
 
 
 if __name__ == '__main__':
@@ -43,6 +48,6 @@ if __name__ == '__main__':
         engine = create_engine(f'postgresql://xmashack:xmashack@localhost:{server.local_bind_port}/xmas_hack_adds_predict')
         logging.info('START')
 
-        learn_on_agent_requests()
+        #learn_on_agent_requests()
 
-        # apply_to_final_test_requests()
+        apply_to_final_test_requests()
