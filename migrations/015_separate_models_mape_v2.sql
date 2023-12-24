@@ -37,14 +37,14 @@ insert into train_predict_by_p2 select * from train_predict_for_p2_26;
 select
 --     score * 0.01499250375 as score,
 --     tvr_index,
---     programme,
+     programme,
     (sum(abs(score  - train.tvr_index) / train.tvr_index)  / count(break_flight_id))::numeric(16,8) as mape_on_all_train
 from
     train
 join train_predict_by_p2 on train.break_flight_id = train_predict_by_p2.id
 where train.tvr_index != 0
--- group by programme
--- order by programme;
+group by programme
+order by programme;
 
 ---------------
 
