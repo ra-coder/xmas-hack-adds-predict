@@ -1,0 +1,1096 @@
+C:\MyPrograms\Python3.10.0\python.exe C:/MyData/PyCharm/xmas-hack-adds-predict/python/main.py
+INFO:root:START
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=1
+MAPE score: 0.1932956240828594
+MAPE on learn score: 0.20360250770459692
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    22.326174
+1                 real_program_start_ts    10.032735
+2         week_day_time_weight_by30_sec     8.786081
+3                   program_duration_ts     8.567530
+4                           duration_ts     8.298454
+5                 break_distribution_id     5.208341
+6          week_day_time_weight_by5_min     4.365296
+7        week_day_time_weight_by150_sec     4.193628
+8                  real_flight_start_ts     4.191444
+9   last_4_week_week_day_300_sec_weight     4.017444
+10                 week_day_time_weight     2.923497
+11                             week_day     2.429955
+12                        real_week_day     2.217629
+13                          time_weight     2.212573
+14                           week_day_3     1.943655
+15                           time_group     1.793889
+16               week_day_300_sec_group     1.771326
+17                     break_content_id     1.663864
+18                      real_week_day_2     1.617437
+19                           week_day_2     1.439049
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=2
+MAPE score: 0.41246998053794115
+MAPE on learn score: 0.40577272295020855
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    26.221961
+1         week_day_time_weight_by30_sec    11.205669
+2                           time_weight     6.649078
+3                  week_day_time_weight     6.473001
+4                 real_program_start_ts     5.968312
+5        week_day_time_weight_by150_sec     5.519279
+6          week_day_time_weight_by5_min     5.224714
+7                  real_flight_start_ts     4.743753
+8                           duration_ts     4.013528
+9                week_day_300_sec_group     3.375841
+10                           time_group     2.950325
+11                  program_duration_ts     2.674759
+12                break_distribution_id     2.547826
+13  last_4_week_week_day_300_sec_weight     2.405584
+14                             week_day     2.061762
+15                      real_week_day_2     1.934197
+16                           week_day_3     1.837052
+17                        real_week_day     1.173571
+18                     break_content_id     1.062141
+19                           week_day_2     0.995443
+20                        night_program     0.962204
+21                         programme_id     0.000000
+22                programme_category_id     0.000000
+23                   programme_genre_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=3
+MAPE score: 0.2820362577543121
+MAPE on learn score: 0.3261766550153028
+                             Feature Id  Importances
+0                 real_program_start_ts    19.990855
+1                   program_duration_ts    17.258288
+2      week_day_bd_time_weight_by30_sec    14.831479
+3                           duration_ts     9.175188
+4                  real_flight_start_ts     6.289179
+5         week_day_time_weight_by30_sec     6.048065
+6                           time_weight     4.636877
+7   last_4_week_week_day_300_sec_weight     3.605306
+8          week_day_time_weight_by5_min     3.188098
+9                  week_day_time_weight     3.087401
+10                           time_group     2.797987
+11       week_day_time_weight_by150_sec     2.714621
+12                break_distribution_id     2.318210
+13               week_day_300_sec_group     2.043813
+14                     break_content_id     2.014634
+15                             week_day     0.000000
+16                        real_week_day     0.000000
+17                           week_day_2     0.000000
+18                      real_week_day_2     0.000000
+19                           week_day_3     0.000000
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=4
+MAPE score: 0.2778056151837161
+MAPE on learn score: 0.28169578737571027
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    21.685240
+1                 real_program_start_ts    13.170852
+2                   program_duration_ts    11.734796
+3                  real_flight_start_ts     5.586536
+4         week_day_time_weight_by30_sec     5.395528
+5   last_4_week_week_day_300_sec_weight     4.703692
+6          week_day_time_weight_by5_min     3.601568
+7                            time_group     3.565450
+8                         real_week_day     3.414653
+9                           duration_ts     3.105532
+10               week_day_300_sec_group     3.034971
+11       week_day_time_weight_by150_sec     2.693100
+12                           week_day_3     2.647057
+13                 week_day_time_weight     2.608592
+14                      real_week_day_2     2.536213
+15                break_distribution_id     2.294332
+16                           week_day_2     2.135201
+17                          time_weight     2.056370
+18                             week_day     2.034142
+19                     break_content_id     1.996176
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=5
+MAPE score: 0.30644492440766724
+MAPE on learn score: 0.3690126583420659
+                             Feature Id  Importances
+0                           duration_ts    12.287287
+1      week_day_bd_time_weight_by30_sec    10.928469
+2                 real_program_start_ts     7.638228
+3                   program_duration_ts     6.903639
+4                      break_content_id     6.013873
+5                         real_week_day     5.356297
+6         week_day_time_weight_by30_sec     5.290251
+7                  real_flight_start_ts     4.656168
+8   last_4_week_week_day_300_sec_weight     4.647850
+9                           time_weight     4.410795
+10                             week_day     3.697072
+11                           week_day_2     3.642822
+12                      real_week_day_2     3.531432
+13         week_day_time_weight_by5_min     3.464358
+14                           week_day_3     3.282040
+15       week_day_time_weight_by150_sec     3.214344
+16               week_day_300_sec_group     2.842135
+17                        extra_holiday     2.345976
+18                 week_day_time_weight     2.320348
+19                           time_group     1.975068
+20                break_distribution_id     1.551551
+21                         programme_id     0.000000
+22                programme_category_id     0.000000
+23                   programme_genre_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=6
+MAPE score: 0.18834919554447635
+MAPE on learn score: 0.22411399536587318
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    18.950665
+1                   program_duration_ts    15.862717
+2                 real_program_start_ts     8.432072
+3         week_day_time_weight_by30_sec     7.011996
+4          week_day_time_weight_by5_min     6.220919
+5                  real_flight_start_ts     6.185256
+6                      break_content_id     5.603782
+7                           duration_ts     5.567542
+8                week_day_300_sec_group     4.752693
+9        week_day_time_weight_by150_sec     4.324601
+10                          time_weight     4.311645
+11  last_4_week_week_day_300_sec_weight     4.056110
+12                           time_group     3.619532
+13                 week_day_time_weight     3.390509
+14                break_distribution_id     1.600277
+15                        night_program     0.109686
+16                             week_day     0.000000
+17                        real_week_day     0.000000
+18                           week_day_2     0.000000
+19                      real_week_day_2     0.000000
+20                           week_day_3     0.000000
+21                         programme_id     0.000000
+22                programme_category_id     0.000000
+23                   programme_genre_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=7
+MAPE score: 0.4630272735548429
+MAPE on learn score: 0.3903724612285628
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    17.390159
+1                   program_duration_ts    10.122524
+2                 real_program_start_ts     9.603155
+3         week_day_time_weight_by30_sec     8.575123
+4                           duration_ts     8.180517
+5                           time_weight     5.730295
+6   last_4_week_week_day_300_sec_weight     5.232357
+7          week_day_time_weight_by5_min     4.945142
+8                  real_flight_start_ts     4.891649
+9        week_day_time_weight_by150_sec     4.541801
+10               week_day_300_sec_group     4.400124
+11                     break_content_id     4.216112
+12                 week_day_time_weight     3.388806
+13                           time_group     3.019159
+14                break_distribution_id     1.671169
+15                      real_week_day_2     1.425833
+16                        real_week_day     0.825339
+17                           week_day_2     0.715770
+18                           week_day_3     0.578743
+19                             week_day     0.546222
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=8
+MAPE score: 0.48139647559378734
+MAPE on learn score: 0.41704898785561123
+                             Feature Id  Importances
+0                   program_duration_ts    19.773837
+1                 real_program_start_ts    15.756268
+2                           duration_ts    12.126207
+3      week_day_bd_time_weight_by30_sec    10.661862
+4         week_day_time_weight_by30_sec     9.238432
+5                  real_flight_start_ts     6.263037
+6   last_4_week_week_day_300_sec_weight     3.680879
+7        week_day_time_weight_by150_sec     3.526249
+8                  week_day_time_weight     3.453239
+9                           time_weight     3.206601
+10                     break_content_id     3.198070
+11         week_day_time_weight_by5_min     3.197297
+12               week_day_300_sec_group     2.654334
+13                           time_group     1.184352
+14                        extra_holiday     1.103447
+15                           week_day_3     0.975889
+16                             week_day     0.000000
+17                        real_week_day     0.000000
+18                           week_day_2     0.000000
+19                      real_week_day_2     0.000000
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                break_distribution_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=9
+MAPE score: 0.30137941965702053
+MAPE on learn score: 0.3305243406677875
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    18.236227
+1                   program_duration_ts    12.283515
+2                           duration_ts    11.410903
+3         week_day_time_weight_by30_sec     9.020168
+4                 real_program_start_ts     7.758944
+5                week_day_300_sec_group     6.137190
+6                  real_flight_start_ts     5.510151
+7                      break_content_id     5.201547
+8   last_4_week_week_day_300_sec_weight     4.908519
+9        week_day_time_weight_by150_sec     4.593636
+10                           time_group     4.507647
+11         week_day_time_weight_by5_min     3.301054
+12                          time_weight     2.643859
+13                 week_day_time_weight     2.567775
+14                break_distribution_id     1.918865
+15                             week_day     0.000000
+16                        real_week_day     0.000000
+17                           week_day_2     0.000000
+18                      real_week_day_2     0.000000
+19                           week_day_3     0.000000
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=10
+MAPE score: 0.25291562172238613
+MAPE on learn score: 0.25810798711776084
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    24.063075
+1                           duration_ts    14.096585
+2         week_day_time_weight_by30_sec     7.648113
+3                 real_program_start_ts     6.916663
+4                   program_duration_ts     6.198701
+5                           time_weight     4.585240
+6                  real_flight_start_ts     4.111900
+7                      break_content_id     3.986529
+8          week_day_time_weight_by5_min     3.675918
+9                  week_day_time_weight     3.154954
+10  last_4_week_week_day_300_sec_weight     3.107343
+11       week_day_time_weight_by150_sec     2.395899
+12               week_day_300_sec_group     2.214962
+13                           week_day_3     2.193455
+14                        real_week_day     2.187933
+15                           time_group     2.041617
+16                           week_day_2     1.997116
+17                      real_week_day_2     1.836350
+18                break_distribution_id     1.795884
+19                             week_day     1.791762
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=11
+MAPE score: 0.24843647476310646
+MAPE on learn score: 0.23813354068354162
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    25.414769
+1                 real_program_start_ts    17.584832
+2                   program_duration_ts    10.114900
+3                           duration_ts     5.400090
+4                  real_flight_start_ts     3.916608
+5         week_day_time_weight_by30_sec     3.902398
+6                      break_content_id     3.692235
+7   last_4_week_week_day_300_sec_weight     3.070089
+8          week_day_time_weight_by5_min     3.040731
+9                week_day_300_sec_group     2.726540
+10                           week_day_3     2.579849
+11                      real_week_day_2     2.486167
+12       week_day_time_weight_by150_sec     2.434274
+13                break_distribution_id     2.341973
+14                           time_group     2.146255
+15                 week_day_time_weight     2.077718
+16                          time_weight     2.040682
+17                           week_day_2     2.007311
+18                             week_day     1.574107
+19                        real_week_day     1.448473
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=12
+MAPE score: 1.554255042636071
+MAPE on learn score: 1.5357535425104107
+                             Feature Id  Importances
+0                  real_flight_start_ts     9.596562
+1                           time_weight     9.270508
+2                 real_program_start_ts     8.218738
+3                            time_group     8.075846
+4          week_day_time_weight_by5_min     7.244032
+5                      break_content_id     6.235993
+6        week_day_time_weight_by150_sec     6.177253
+7      week_day_bd_time_weight_by30_sec     5.293862
+8                           duration_ts     5.022992
+9                            week_day_2     4.549236
+10                 week_day_time_weight     4.386446
+11                             week_day     4.206590
+12                  program_duration_ts     3.953827
+13                      real_week_day_2     3.285116
+14        week_day_time_weight_by30_sec     3.256236
+15                        real_week_day     3.183885
+16                           week_day_3     3.137203
+17               week_day_300_sec_group     1.842304
+18  last_4_week_week_day_300_sec_weight     1.641864
+19                        extra_holiday     0.635160
+20                        night_program     0.625518
+21                break_distribution_id     0.160830
+22                         programme_id     0.000000
+23                programme_category_id     0.000000
+24                   programme_genre_id     0.000000
+25                     p_avg_int_target     0.000000
+26                         p_effir_rate     0.000000
+27                 p_blocks_per_program     0.000000
+28                    pc_avg_int_target     0.000000
+29                        pc_effir_rate     0.000000
+30                pc_blocks_per_program     0.000000
+31             genre_blocks_per_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=13
+MAPE score: 0.3609664455537623
+MAPE on learn score: 0.3334800410497275
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    20.804355
+1                   program_duration_ts    13.119625
+2         week_day_time_weight_by30_sec     8.029680
+3                           time_weight     7.794629
+4                  real_flight_start_ts     7.499165
+5                 real_program_start_ts     6.406179
+6                           duration_ts     6.110117
+7          week_day_time_weight_by5_min     6.024686
+8                      break_content_id     4.937522
+9                  week_day_time_weight     4.718032
+10       week_day_time_weight_by150_sec     4.376276
+11                           time_group     3.915027
+12                break_distribution_id     2.454870
+13  last_4_week_week_day_300_sec_weight     2.174550
+14               week_day_300_sec_group     1.635287
+15                             week_day     0.000000
+16                        real_week_day     0.000000
+17                           week_day_2     0.000000
+18                      real_week_day_2     0.000000
+19                           week_day_3     0.000000
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=14
+MAPE score: 0.24221552030733268
+MAPE on learn score: 0.24782365441161278
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    18.677085
+1                 real_program_start_ts    15.199443
+2                           duration_ts    13.047982
+3                   program_duration_ts    12.514232
+4                  real_flight_start_ts     7.207699
+5                      break_content_id     5.787051
+6         week_day_time_weight_by30_sec     4.486360
+7   last_4_week_week_day_300_sec_weight     4.481040
+8                week_day_300_sec_group     3.786299
+9                           time_weight     3.720525
+10       week_day_time_weight_by150_sec     2.760377
+11                           time_group     2.550430
+12         week_day_time_weight_by5_min     2.402047
+13                break_distribution_id     1.495395
+14                 week_day_time_weight     1.280685
+15                        extra_holiday     0.603349
+16                             week_day     0.000000
+17                        real_week_day     0.000000
+18                           week_day_2     0.000000
+19                      real_week_day_2     0.000000
+20                           week_day_3     0.000000
+21                         programme_id     0.000000
+22                programme_category_id     0.000000
+23                   programme_genre_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+model for program_id=15
+INFO:root:Data select done
+INFO:root:Data prepared
+MAPE score: 0.28777675885964643
+MAPE on learn score: 0.2939516363054487
+                             Feature Id  Importances
+0                   program_duration_ts    17.986737
+1                           duration_ts    11.616825
+2      week_day_bd_time_weight_by30_sec    11.058951
+3         week_day_time_weight_by30_sec     9.924173
+4                 real_program_start_ts     8.893534
+5                 break_distribution_id     7.802917
+6                  real_flight_start_ts     4.260504
+7   last_4_week_week_day_300_sec_weight     3.833769
+8                           time_weight     3.789956
+9        week_day_time_weight_by150_sec     3.447001
+10                     break_content_id     3.206897
+11                 week_day_time_weight     2.591880
+12               week_day_300_sec_group     2.217891
+13                           time_group     1.862946
+14         week_day_time_weight_by5_min     1.768661
+15                             week_day     1.409386
+16                           week_day_2     1.288001
+17                      real_week_day_2     1.162586
+18                        real_week_day     0.786905
+19                           week_day_3     0.591244
+20                        extra_holiday     0.499238
+21                         programme_id     0.000000
+22                programme_category_id     0.000000
+23                   programme_genre_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+model for program_id=16
+INFO:root:Data select done
+INFO:root:Data prepared
+MAPE score: 0.3237876404973887
+MAPE on learn score: 0.3273125680877634
+                             Feature Id  Importances
+0                   program_duration_ts     9.212802
+1                           duration_ts     8.693706
+2      week_day_bd_time_weight_by30_sec     8.577505
+3                 real_program_start_ts     7.856677
+4         week_day_time_weight_by30_sec     7.144461
+5        week_day_time_weight_by150_sec     6.808410
+6                  real_flight_start_ts     5.522325
+7                      break_content_id     5.129578
+8          week_day_time_weight_by5_min     4.601271
+9                              week_day     3.962394
+10                      real_week_day_2     3.733582
+11                        extra_holiday     3.628386
+12                           week_day_2     3.544437
+13                 week_day_time_weight     3.412694
+14                        real_week_day     3.343721
+15               week_day_300_sec_group     3.292718
+16                           week_day_3     3.188919
+17                          time_weight     2.524303
+18  last_4_week_week_day_300_sec_weight     2.358123
+19                           time_group     2.337084
+20                break_distribution_id     1.126902
+21                         programme_id     0.000000
+22                programme_category_id     0.000000
+23                   programme_genre_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=17
+MAPE score: 0.3404082082678982
+MAPE on learn score: 0.3571816071407549
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    15.125882
+1         week_day_time_weight_by30_sec    12.399491
+2                 real_program_start_ts    11.320643
+3                   program_duration_ts     8.903248
+4                           duration_ts     6.930314
+5                 break_distribution_id     5.348758
+6                  real_flight_start_ts     4.796059
+7                      break_content_id     3.431457
+8          week_day_time_weight_by5_min     3.275914
+9                            week_day_2     3.027067
+10                          time_weight     2.830214
+11                           week_day_3     2.781227
+12                 week_day_time_weight     2.741236
+13  last_4_week_week_day_300_sec_weight     2.715895
+14                      real_week_day_2     2.521124
+15                           time_group     2.483452
+16                             week_day     2.264470
+17       week_day_time_weight_by150_sec     2.025541
+18                        extra_holiday     1.934237
+19                        real_week_day     1.599332
+20               week_day_300_sec_group     1.412709
+21                        night_program     0.131729
+22                         programme_id     0.000000
+23                programme_category_id     0.000000
+24                   programme_genre_id     0.000000
+25                     p_avg_int_target     0.000000
+26                         p_effir_rate     0.000000
+27                 p_blocks_per_program     0.000000
+28                    pc_avg_int_target     0.000000
+29                        pc_effir_rate     0.000000
+30                pc_blocks_per_program     0.000000
+31             genre_blocks_per_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=18
+MAPE score: 0.5877276728912031
+MAPE on learn score: 0.5917829755359529
+                             Feature Id  Importances
+0         week_day_time_weight_by30_sec    16.959263
+1      week_day_bd_time_weight_by30_sec    11.279956
+2          week_day_time_weight_by5_min    10.351322
+3                           time_weight     9.306322
+4                 real_program_start_ts     9.007374
+5        week_day_time_weight_by150_sec     7.845006
+6                  week_day_time_weight     7.409526
+7                  real_flight_start_ts     5.232690
+8   last_4_week_week_day_300_sec_weight     4.557289
+9                            time_group     3.840399
+10                  program_duration_ts     3.066364
+11                        extra_holiday     3.027706
+12               week_day_300_sec_group     1.891175
+13                        real_week_day     1.302145
+14                           week_day_3     1.246050
+15                          duration_ts     1.106284
+16                      real_week_day_2     0.855271
+17                           week_day_2     0.644686
+18                     break_content_id     0.614798
+19                             week_day     0.456374
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                break_distribution_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=19
+MAPE score: 0.24931696856710048
+MAPE on learn score: 0.29015705559773697
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    17.994085
+1                           duration_ts    15.794807
+2                 real_program_start_ts    13.828469
+3         week_day_time_weight_by30_sec     8.177590
+4                   program_duration_ts     7.018685
+5                  real_flight_start_ts     6.459891
+6                      break_content_id     5.870794
+7        week_day_time_weight_by150_sec     4.448198
+8   last_4_week_week_day_300_sec_weight     4.118957
+9                  week_day_time_weight     3.836766
+10                          time_weight     3.691850
+11               week_day_300_sec_group     3.150713
+12                           time_group     2.289212
+13                break_distribution_id     1.786558
+14         week_day_time_weight_by5_min     1.533426
+15                             week_day     0.000000
+16                        real_week_day     0.000000
+17                           week_day_2     0.000000
+18                      real_week_day_2     0.000000
+19                           week_day_3     0.000000
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+model for program_id=20
+INFO:root:Data select done
+INFO:root:Data prepared
+MAPE score: 0.26460431484290486
+MAPE on learn score: 0.26395069104385666
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    16.755743
+1         week_day_time_weight_by30_sec    14.296264
+2                   program_duration_ts     9.485483
+3                 real_program_start_ts     9.026090
+4                  real_flight_start_ts     5.873238
+5                           duration_ts     5.740377
+6          week_day_time_weight_by5_min     4.219812
+7                       real_week_day_2     3.779327
+8   last_4_week_week_day_300_sec_weight     3.640972
+9                            week_day_3     3.413061
+10                          time_weight     3.330502
+11                           week_day_2     3.266389
+12               week_day_300_sec_group     2.961667
+13                     break_content_id     2.835303
+14                             week_day     2.671591
+15       week_day_time_weight_by150_sec     2.306931
+16                        real_week_day     2.287846
+17                           time_group     2.090101
+18                 week_day_time_weight     1.592684
+19                        extra_holiday     0.426619
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                break_distribution_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=21
+MAPE score: 0.26745809671177534
+MAPE on learn score: 0.35501040791734784
+                             Feature Id  Importances
+0                         extra_holiday    21.722209
+1      week_day_bd_time_weight_by30_sec    14.690696
+2                 real_program_start_ts    10.460802
+3                   program_duration_ts     8.397760
+4         week_day_time_weight_by30_sec     6.545370
+5                           time_weight     4.187255
+6   last_4_week_week_day_300_sec_weight     3.594287
+7                  real_flight_start_ts     2.937856
+8        week_day_time_weight_by150_sec     2.903447
+9                week_day_300_sec_group     2.804879
+10                          duration_ts     2.735531
+11                break_distribution_id     2.568633
+12                           week_day_3     2.553590
+13                 week_day_time_weight     2.519094
+14         week_day_time_weight_by5_min     2.386258
+15                             week_day     2.179114
+16                     break_content_id     1.745297
+17                        real_week_day     1.595659
+18                           time_group     1.426308
+19                           week_day_2     1.405746
+20                      real_week_day_2     0.640212
+21                         programme_id     0.000000
+22                programme_category_id     0.000000
+23                   programme_genre_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=22
+MAPE score: 0.3955373407429581
+MAPE on learn score: 0.3356988894103462
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    18.302169
+1         week_day_time_weight_by30_sec    18.194841
+2                   program_duration_ts     9.255535
+3                 real_program_start_ts     6.247076
+4                           duration_ts     5.463210
+5                  week_day_time_weight     4.658733
+6                  real_flight_start_ts     3.694245
+7                week_day_300_sec_group     3.628214
+8        week_day_time_weight_by150_sec     3.451092
+9                              week_day     3.430616
+10                        real_week_day     3.142639
+11                     break_content_id     3.080655
+12         week_day_time_weight_by5_min     2.816660
+13                           week_day_2     2.705618
+14                          time_weight     2.664820
+15  last_4_week_week_day_300_sec_weight     2.600065
+16                      real_week_day_2     2.501904
+17                           week_day_3     2.490989
+18                           time_group     1.331161
+19                        extra_holiday     0.339758
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                break_distribution_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=23
+MAPE score: 0.41765263693600585
+MAPE on learn score: 0.42124012124524673
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    31.869448
+1         week_day_time_weight_by30_sec    13.846849
+2                 break_distribution_id     9.534466
+3                 real_program_start_ts     6.200197
+4                   program_duration_ts     5.775997
+5                           duration_ts     3.785279
+6   last_4_week_week_day_300_sec_weight     3.348758
+7                  real_flight_start_ts     3.269121
+8                           time_weight     3.256784
+9        week_day_time_weight_by150_sec     3.070104
+10                     break_content_id     2.625188
+11         week_day_time_weight_by5_min     2.387482
+12                           time_group     2.121665
+13                 week_day_time_weight     1.616413
+14               week_day_300_sec_group     1.594106
+15                           week_day_2     1.422411
+16                           week_day_3     1.408970
+17                             week_day     1.250458
+18                        real_week_day     0.881285
+19                      real_week_day_2     0.735019
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+model for program_id=24
+INFO:root:Data select done
+INFO:root:Data prepared
+MAPE score: 0.3006863436608726
+MAPE on learn score: 0.25042583586417144
+                             Feature Id  Importances
+0                   program_duration_ts    21.738551
+1                 real_program_start_ts    18.367814
+2         week_day_time_weight_by30_sec    11.960705
+3      week_day_bd_time_weight_by30_sec     8.220207
+4                           duration_ts     6.905602
+5                  real_flight_start_ts     5.367448
+6        week_day_time_weight_by150_sec     5.049615
+7   last_4_week_week_day_300_sec_weight     4.425601
+8                           time_weight     3.910805
+9                      break_content_id     3.226069
+10         week_day_time_weight_by5_min     2.884241
+11                 week_day_time_weight     2.787819
+12               week_day_300_sec_group     2.306561
+13                           time_group     1.922317
+14                           week_day_3     0.202510
+15                        extra_holiday     0.178438
+16                        real_week_day     0.151864
+17                             week_day     0.128283
+18                           week_day_2     0.125669
+19                        night_program     0.083333
+20                      real_week_day_2     0.056547
+21                         programme_id     0.000000
+22                programme_category_id     0.000000
+23                   programme_genre_id     0.000000
+24                break_distribution_id     0.000000
+25                     p_avg_int_target     0.000000
+26                         p_effir_rate     0.000000
+27                 p_blocks_per_program     0.000000
+28                    pc_avg_int_target     0.000000
+29                        pc_effir_rate     0.000000
+30                pc_blocks_per_program     0.000000
+31             genre_blocks_per_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=25
+MAPE score: 0.3747248575072897
+MAPE on learn score: 0.3991836265089345
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    19.283242
+1                   program_duration_ts    13.656794
+2                 real_program_start_ts    12.356018
+3                      break_content_id     9.617319
+4                           duration_ts     9.192492
+5         week_day_time_weight_by30_sec     7.214483
+6        week_day_time_weight_by150_sec     5.563924
+7                  real_flight_start_ts     4.823876
+8   last_4_week_week_day_300_sec_weight     3.087237
+9                            time_group     2.454748
+10               week_day_300_sec_group     2.266277
+11                        extra_holiday     2.179290
+12         week_day_time_weight_by5_min     2.085451
+13                          time_weight     2.083851
+14                           week_day_3     1.751974
+15                 week_day_time_weight     1.685432
+16                break_distribution_id     0.697594
+17                             week_day     0.000000
+18                        real_week_day     0.000000
+19                           week_day_2     0.000000
+20                      real_week_day_2     0.000000
+21                         programme_id     0.000000
+22                programme_category_id     0.000000
+23                   programme_genre_id     0.000000
+24                     p_avg_int_target     0.000000
+25                         p_effir_rate     0.000000
+26                 p_blocks_per_program     0.000000
+27                    pc_avg_int_target     0.000000
+28                        pc_effir_rate     0.000000
+29                pc_blocks_per_program     0.000000
+30             genre_blocks_per_program     0.000000
+31                        night_program     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+INFO:root:Data select done
+INFO:root:Data prepared
+model for program_id=26
+MAPE score: 0.36113229495544963
+MAPE on learn score: 0.35170747596782764
+                             Feature Id  Importances
+0      week_day_bd_time_weight_by30_sec    27.372435
+1                   program_duration_ts    11.846657
+2                 real_program_start_ts    10.782532
+3         week_day_time_weight_by30_sec     6.790457
+4                           duration_ts     5.649387
+5   last_4_week_week_day_300_sec_weight     3.938764
+6          week_day_time_weight_by5_min     3.520834
+7                  real_flight_start_ts     2.929392
+8                         real_week_day     2.854819
+9                  week_day_time_weight     2.845518
+10       week_day_time_weight_by150_sec     2.752215
+11                           week_day_3     2.656306
+12                break_distribution_id     2.536221
+13                     break_content_id     2.500881
+14                      real_week_day_2     2.431635
+15               week_day_300_sec_group     1.911461
+16                           time_group     1.887342
+17                           week_day_2     1.619054
+18                             week_day     1.594561
+19                          time_weight     1.579529
+20                         programme_id     0.000000
+21                programme_category_id     0.000000
+22                   programme_genre_id     0.000000
+23                     p_avg_int_target     0.000000
+24                         p_effir_rate     0.000000
+25                 p_blocks_per_program     0.000000
+26                    pc_avg_int_target     0.000000
+27                        pc_effir_rate     0.000000
+28                pc_blocks_per_program     0.000000
+29             genre_blocks_per_program     0.000000
+30                        night_program     0.000000
+31                        extra_holiday     0.000000
+INFO:root:predicts calculated
+INFO:root:result table created
+INFO:root:saved chunk 0
+INFO:root:saved to db finished
+
+Process finished with exit code 0
